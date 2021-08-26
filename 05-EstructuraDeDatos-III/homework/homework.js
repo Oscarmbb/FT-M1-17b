@@ -69,8 +69,11 @@ function BinarySearchTree(argumento) {
     }
   }
   this.breadthFirstForEach = function(resultado) {
+    if (!arreglo) var arreglo = [];
     resultado(this.value);
     if (this.right && this.left) {
+      resultado(this.left);
+      resultado(this.right);
       this.left.breadthFirstForEach(resultado);
       auxiliar = this.right;
     } else if (this.left) {
